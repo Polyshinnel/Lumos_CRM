@@ -1,5 +1,5 @@
 import { ActionIcon, Burger, Group, Stack, Text, Tooltip, UnstyledButton } from '@mantine/core';
-import { IconCrown, IconHelmet, IconLogout, IconUser } from '@tabler/icons-react';
+import { IconCrown, IconLogout, IconUser } from '@tabler/icons-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useAuthStore } from '../../features/auth/store/useAuthStore';
@@ -41,7 +41,7 @@ export function AppHeader({ burgerOpened, onBurgerClick }: AppHeaderProps) {
                     }}
                 >
                     <Group gap="xs" wrap="nowrap">
-                        <IconHelmet size={22} />
+                        <img src="/images/logo.webp" alt="Lumos CRM logo" width={35} height={35} style={{ objectFit: 'contain' }} />
                         <Text fw={700} size="lg">
                             Lumos CRM
                         </Text>

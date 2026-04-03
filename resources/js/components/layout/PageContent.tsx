@@ -9,8 +9,13 @@ interface PageContentProps {
 
 const routeNames: Record<string, string> = {
     '/': 'Главная',
-    '/about': 'О системе',
-    '/dashboard': 'Показатели',
+    '/crm': 'CRM',
+    '/clients': 'Клиенты',
+    '/measurements': 'Замеры',
+    '/installations': 'Монтажи',
+    '/warehouse': 'Склад',
+    '/settings/roles': 'Роли',
+    '/settings/users': 'Пользователи',
 };
 
 export function PageContent({ title, children }: PageContentProps) {
