@@ -6,6 +6,7 @@ import { PrivateRoute } from './components/PrivateRoute';
 import { useAuthStore } from './features/auth/store/useAuthStore';
 import { ClientsPage } from './pages/ClientsPage';
 import { CrmPage } from './pages/CrmPage';
+import { DealPage } from './pages/DealPage';
 import { HomePage } from './pages/HomePage';
 import { InstallationsPage } from './pages/InstallationsPage';
 import { LoginPage } from './pages/LoginPage';
@@ -32,6 +33,11 @@ function RouteTitle() {
             '/login': 'Вход в систему',
             '/register': 'Регистрация',
         };
+
+        if (pathname.startsWith('/crm/deals/')) {
+            document.title = 'Сделка';
+            return;
+        }
 
         document.title = titleByPath[pathname] ?? 'Страница не найдена';
     }, [pathname]);
@@ -79,6 +85,7 @@ export function App() {
                 <Route element={<PrivateRoute />}>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/crm" element={<CrmPage />} />
+                    <Route path="/crm/deals/:dealId" element={<DealPage />} />
                     <Route path="/clients" element={<ClientsPage />} />
                     <Route path="/measurements" element={<MeasurementsPage />} />
                     <Route path="/installations" element={<InstallationsPage />} />
