@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 interface PageContentProps {
     title: string;
     children: ReactNode;
+    hideTitle?: boolean;
 }
 
 const routeNames: Record<string, string> = {
@@ -18,7 +19,7 @@ const routeNames: Record<string, string> = {
     '/settings/users': 'Пользователи',
 };
 
-export function PageContent({ title, children }: PageContentProps) {
+export function PageContent({ title, children, hideTitle = false }: PageContentProps) {
     const location = useLocation();
     const currentPath = location.pathname;
     const currentPageTitle = routeNames[currentPath] ?? title;
@@ -34,9 +35,11 @@ export function PageContent({ title, children }: PageContentProps) {
                 </Breadcrumbs>
             ) : null}
 
-            <Title order={2} mb="md">
-                {title}
-            </Title>
+            {!hideTitle ? (
+                <Title order={2} mb="md">
+                    {title}
+                </Title>
+            ) : null}
 
             <Box style={{ overflow: 'auto' }}>{children}</Box>
         </Stack>
